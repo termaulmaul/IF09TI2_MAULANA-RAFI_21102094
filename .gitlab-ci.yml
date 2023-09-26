@@ -1,0 +1,12 @@
+pages:
+  stage: deploy
+  script:
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  - mv public/practice2/practice2.html public/index.html
+  artifacts:
+    paths:
+    - public
+  only:
+  - main
