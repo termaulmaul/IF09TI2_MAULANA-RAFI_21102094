@@ -1,9 +1,33 @@
-pages:
+# This is a sample .gitlab-ci.yml configuration for deploying a static website
+# using a Node.js-based build image.
+
+# Use the Node.js LTS image as the build environment
+image: node:lts
+
+# Define the stages of your CI/CD pipeline
+stages:
+  - build
+  - deploy
+
+# Define the jobs for each stage
+build:
+  stage: build
   script:
-    - mkdir .public
-    - cp -r * .public
+    # Install dependencies and build your website
+    - npm install
+    - npm run build # Modify this command according to your project setup
+
   artifacts:
     paths:
-      - .public
+      - public/ # Ensure that the built output is in a "public" folder
+
+deploy:
+  stage: deploy
+  script:
+    # Deploy the built website to GitLab Pages
+    - mv public/ public_html/ # Rename the "public" folder to "public_html"
+    - mkdir .public
+    - mv public_html .public/
+
   only:
-    - main  # Ganti dengan nama branch utama Anda jika perlu
+    - master # Adjust this branch based on your deployment criteria
