@@ -1,87 +1,124 @@
 <!DOCTYPE html>
-<htm|>
-  <body>
-    <h2>HTML Forms</h2>
-    <form action=" /action_page.php">
-      <label for="fname">First name:</label>
-      <br>
-      <input type="text" id="fname" name="fname" value="John">
-      <br>
-      <label for="Iname">Last name:</label>
-      <br>
-      <input type="text" id="Iname" name="Iname" value="Doe" readonly>
-      <br>
-      <label for="Iname">Data:</label>
-      <br>
-      <input type="text" id="Iname" name="Idata" value="None" disabled>
-      <br>
-      <label for="Iname">Age:</label>
-      <br>
-      <input type="number" id="Iname" name="lage" required>
-      <br>
-      <label for="Iname">Select :</label>
-      <br>
-      <select id="cars" name="cars">
-        <option value="volvo">Volvo</option>
-        <option value=" saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select>
-      <br>
-      <label for="Iname">Multiple :</label>
-      <br>
-      <select name="cars" size="4" multiple>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select>
-      <br>
-      <label for="Iname">Gender :</label>
-      <br>
-      <input type="radio" id="male" name="gender" value="male">
-      <label for=" male">Male</label>
-      <br>
-      <input type="radio" id="female" name="gender" value="female">
-      <label for="female">Female</label>
-      <br>
-      <input type="radio" id="other" name="gender" value="other">
-      <label for="other">Other</label>
-      <br>
-      <label for="Iname">Choose :</label>
-      <br>
-      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-      <label for="vehicle1"> I have a bike</label>
-      <br>
-      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" ≥ <label for="vehicle2"> I have a car</label>
-      <br>
-      <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-      <label for="vehicle3"> I have a boat</label>
-      <br>
-      <label for="Iname">Text Area :</label>
-      <br>
-      <textarea name="message" rows="10" cols="30">
-The cat was playing in the garden.
-≤/textarea>
-																																			<br>
-																																				<label for="favcolor">Select your favorite color:</label>
-																																				<br>
-																																					<input type="color" id="favcolor" name="favcolor">
-																																						<br>
-																																							<label for="birthday">Birthday:</label>
-																																							<br>
-																																								<input type="date" id="birthday" name="birthday">
-																																									<br>
-																																										<label for="email">Enter your email:</label>
-																																										<br>
-																																											<input type="email" id="email" name="email">
-																																												<br>
-																																													<label for=" myfile">Select a file:</label>
-																																													<br>
-																																														<input type="file" id="myfile" name="myfile">
-																																															<input type="submit" value="Submit" >
-																																																<br>
-																																																</form>
-																																															</body>
-																																														</html>
-																																														<p>lf you click the "Submit" button, the form-data will be sent to a page called "/action _page.php".</p>
+<html>
+  <head>
+    <title>HTML Forms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+      /* Add animation to form elements */
+      input,
+      select,
+      textarea {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      /* Define animation */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4">HTML Forms</h2>
+      <form action="/action_page.php">
+        <div class="mb-4">
+          <label for="fname" class="block text-gray-700 font-bold mb-2">First name:</label>
+          <input type="text" id="fname" name="fname" value="John" class="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+        <div class="mb-4">
+          <label for="lname" class="block text-gray-700 font-bold mb-2">Last name:</label>
+          <input type="text" id="lname" name="lname" value="Doe" readonly class="border border-gray-400 p-2 w-full rounded-md bg-gray-100 cursor-not-allowed">
+        </div>
+        <div class="mb-4">
+          <label for="data" class="block text-gray-700 font-bold mb-2">Data:</label>
+          <input type="text" id="data" name="data" value="None" disabled class="border border-gray-400 p-2 w-full rounded-md bg-gray-100 cursor-not-allowed">
+        </div>
+        <div class="mb-4">
+          <label for="age" class="block text-gray-700 font-bold mb-2">Age:</label>
+          <input type="number" id="age" name="age" required class="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+        <div class="mb-4">
+          <label for="cars" class="block text-gray-700 font-bold mb-2">Select :</label>
+          <select id="cars" name="cars" class="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="cars" class="block text-gray-700 font-bold mb-2">Multiple :</label>
+          <select name="cars" size="4" multiple class="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2">Gender :</label>
+          <div class="flex items-center mb-2">
+            <input type="radio" id="male" name="gender" value="male" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <label for="male" class="ml-2">Male</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input type="radio" id="female" name="gender" value="female" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <label for="female" class="ml-2">Female</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input type="radio" id="other" name="gender" value="other" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <label for="other" class="ml-2">Other</label>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="vehicle" class="block text-gray-700 font-bold mb-2">Choose :</label>
+          <div class="flex items-center mb-2">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <label for="vehicle1" class="ml-2">I have a bike</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <label for="vehicle2" class="ml-2">I have a car</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <label for="vehicle3" class="ml-2">I have a boat</label>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-gray-700 font-bold mb-2">Text Area :</label>
+          <textarea name="message" rows="10" cols="30" class="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">The cat was playing in the garden.</textarea>
+        </div>
+        <div class="mb-4">
+          <label for="favcolor" class="block text-gray-700 font-bold mb-2">Select your favorite color:</label>
+          <input type="color" id="favcolor" name="favcolor" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+        <div class="mb-4">
+          <label for="birthday" class="block text-gray-700 font-bold mb-2">Birthday:</label>
+          <input type="date" id="birthday" name="birthday" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-bold mb-2">Enter your email:</label>
+          <input type="email" id="email" name="email" class="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+        <div class="mb-4">
+          <label for="myfile" class="block text-gray-700 font-bold mb-2">Select a file:</label>
+          <input type="file" id="myfile" name="myfile" class="border border-gray-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+        <div class="mb-4">
+          <input type="submit" value="Submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+<footer class="text-center py-4">
+  <p>&copy; 2023 - 21102094 Maulana Rafi</p>
+</footer>

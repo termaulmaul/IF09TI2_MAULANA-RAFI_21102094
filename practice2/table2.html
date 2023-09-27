@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th, td {
-                padding: 5px;
-                text-align: left;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>Cell that spans two columns</h2>
-        <p>To make a cell span more than one column, use the colspan attribute.</p>
-        <table style="width: 100%">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Styling</title>
+    <!-- Tambahkan link ke Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="container mx-auto max-w-md bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Cell that spans two columns</h2>
+        <p class="mb-4">To make a cell span more than one column, use the colspan attribute.</p>
+        <table class="w-full">
             <tr>
-                <th>Name</th>
-                <th colspan="2">Telephone</th>
+                <th class="border px-4 py-2">Name</th>
+                <th class="border px-4 py-2" colspan="2">Telephone</th>
             </tr>
             <tr>
-                <td>Bill Gates</td>
-                <td>555 77 854</td>
-                <td>555 77 855</td>
+                <td class="border px-4 py-2">Bill Gates</td>
+                <td class="border px-4 py-2">555 77 854</td>
+                <td class="border px-4 py-2">555 77 855</td>
             </tr>
         </table>
-    </body>
+    </div>
+</body>
 </html>
