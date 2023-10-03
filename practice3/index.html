@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chania</title>
+    <!-- Link to Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Link to anime.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        /* Additional Styles */
+        .rounded-custom {
+            border-radius: 15px;
+        }
+
+        /* Efek transisi yang lebih halus */
+        .w-full {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-purple-600 text-white py-8 text-center shadow-lg">
+        <h1 id="animated-text" class="text-4xl font-bold">Chania</h1>
+    </header>
+
+    <script>
+        // Using anime.js for text animation
+        anime.timeline({ loop: true })
+          .add({
+            targets: '#animated-text',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            easing: 'easeOutExpo',
+            duration: 1500
+          })
+          .add({
+            targets: '#animated-text',
+            opacity: [1, 0],
+            translateY: [0, -50],
+            easing: 'easeInExpo',
+            duration: 1500,
+            delay: 1000
+          })
+          .add({
+            targets: '#animated-text',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            easing: 'easeOutExpo',
+            duration: 1500,
+            delay: 1000
+          })
+          .add({
+            targets: '#animated-text',
+            opacity: [1, 0],
+            translateY: [0, -50],
+            easing: 'easeInExpo',
+            duration: 1500,
+            delay: 1000
+          });
+    </script>
+
+    <!-- Main Content -->
+    <div class="container mx-auto flex flex-col md:flex-row p-4 space-y-4 md:space-x-4">
+        <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:rotate-3 transition duration-300">
+            <ul class="list-none p-0">
+                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition duration-300">The Flight</li>
+                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition duration-300">The City</li>
+                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition duration-300">The Island</li>
+                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition duration-300">The Food</li>
+            </ul>
+        </div>
+
+        <div class="w-full md:w-1/2 bg-white p-4 rounded-custom shadow-md">
+            <h1 class="text-3xl font-bold mb-4">The City</h1>
+            <p class="text-gray-700 leading-7">Chania is the capital of the Chania region on the island of Crete. The city can be divided into two parts, the old town and the modern city.</p>
+        </div>
+
+        <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:-translate-y-2 hover:scale-105 transition duration-300">
+            <div class="text-white p-4">
+                <h2 class="text-2xl font-bold mb-4">What?</h2>
+                <p class="text-gray-700 leading-7">Chania is a city on the island of Crete.</p>
+                <h2 class="text-2xl font-bold mb-4">Where?</h2>
+                <p class="text-gray-700 leading-7">Crete is a Greek island in the Mediterranean Sea.</p>
+                <h2 class="text-2xl font-bold mb-4">How?</h2>
+                <p class="text-gray-700 leading-7">You can reach Chania airport from all over Europe.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center py-4">
+        <p class="text-sm font-medium">Resize the browser window to see how the content responds to resizing.</p>
+    </footer>
+
+</body>
+</html>
