@@ -9,18 +9,159 @@
     <!-- Link to anime.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
-      /* Additional Styles */
+      /* CSS dengan Media Queries */
+      .mq-examples-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+        .mq-examples-container {
+            background-color: #007bff;
+            color: white;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 1200px) {
+        .mq-examples-container {
+            background-color: #28a745;
+            color: white;
+        }
+    }
+
+    @media (min-width: 1201px) {
+        .mq-examples-container {
+            background-color: #ff6c02;
+            color: white;
+        }
+    }
+      /* CSS dengan Media Queries */
+      .media-queries-example {
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+        .media-queries-example {
+            background-color: #007bff;
+            color: white;
+        }
+    }
+      /* CSS dengan Flexbox */
+      .flexbox-example {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        height: 100px;
+        background-color: #f0f0f0;
+    }
+
+    .flex-item {
+        width: 80px;
+        height: 80px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        line-height: 80px;
+    }
+      /* CSS dengan box-sizing */
+      .box-sizing-example {
+        width: 200px;
+        height: 100px;
+        padding: 20px;
+        border: 2px solid #007bff;
+        box-sizing: border-box; /* Menggunakan box-sizing untuk menghitung ukuran total */
+    }
+      /* Variabel CSS */
+      :root {
+        --primary-color: #007bff; /* Warna utama */
+        --secondary-color: #ff5722; /* Warna sekunder */
+    }
+
+    /* Penggunaan variabel CSS */
+    .variable-example {
+        background-color: var(--primary-color); /* Menggunakan variabel untuk latar belakang */
+        color: var(--secondary-color); /* Menggunakan variabel untuk warna teks */
+        padding: 20px;
+        text-align: center;
+    }
+      /* CSS untuk tombol masuk */
+      .ui-button {
+        background-color: #007bff; /* Warna latar belakang */
+        color: #fff; /* Warna teks */
+        padding: 10px 20px; /* Padding untuk ruang di sekitar teks */
+        border: none; /* Hapus border */
+        border-radius: 5px; /* Sudut bulat */
+        cursor: pointer; /* Ubah kursor saat mengarahkan ke tombol */
+    }
+
+    /* CSS untuk tombol masuk saat dihover */
+    .ui-button:hover {
+        background-color: #0056b3; /* Warna latar belakang saat hover */
+    }
+.button-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.button-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Gaya tombol sekunder */
+.button-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.button-secondary:hover {
+  background-color: #ccc;
+}
+
+      .object-position-container {
+        width: 300px; /* Lebar container */
+        height: 200px; /* Tinggi container */
+        overflow: hidden; /* Agar gambar tidak keluar dari container */
+        position: relative; /* Diperlukan untuk pengaturan absolute */
+    }
+
+    .object-position-image {
+        width: 100%; /* Gambar akan mengisi seluruh container */
+        height: auto; /* Tinggi gambar akan disesuaikan agar tidak terdistorsi */
+        object-fit: cover; /* Agar gambar mengisi seluruh container tanpa distorsi */
+        object-position: center top; /* Ubah nilai ini untuk mengatur posisi objek dalam gambar */
+    }
       .image-container {
         position: relative;
         width: 300px;
-    }
+      }
 
-    .image-container img {
+      .image-container img {
         width: 100%;
         height: auto;
-    }
+      }
 
-    .reflection {
+      .reflection {
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -28,10 +169,10 @@
         transform: scaleY(-1);
         transform-origin: bottom;
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
-    }
+      }
 
-    /* Gaya CSS untuk popup */
-    #popup {
+      /* Gaya CSS untuk popup */
+      #popup {
         display: none;
         position: fixed;
         top: 0;
@@ -42,21 +183,21 @@
         z-index: 9999;
         align-items: center;
         justify-content: center;
-    }
+      }
 
-    .popup-content {
+      .popup-content {
         background: white;
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    }
+      }
 
-    #close-popup {
+      #close-popup {
         position: absolute;
         top: 10px;
         right: 10px;
         cursor: pointer;
-    }
+      }
 
       .transition-box {
         width: 100px;
@@ -249,14 +390,14 @@
       </div>
       <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:-translate-y-2 hover:scale-105 transition-effect">
         <div class="text-white p-4">
-          <h2 class="text-2xl font-bold mb-4">What?</h2>
-          <p class="text-gray-700 leading-7">Chania is a city on the island of Crete.</p>
-          <h2 class="text-2xl font-bold mb-4">Where?</h2>
-          <p class="text-gray-700 leading-7">Crete is a Greek island in the Mediterranean Sea.</p>
-          <h2 class="text-2xl font-bold mb-4">How?</h2>
-          <p class="text-gray-700 leading-7">You can reach Chania airport from all over Europe.</p>
+            <h2 class="text-2xl font-bold mb-4">Maulana Rafi Nurdiansyah</h2>
+            <p class="text-gray-700 leading-7">A 22-year-old student, currently pursuing a degree in Informatics Engineering at IT Telkom Purwokerto.</p>
+            <h2 class="text-2xl font-bold my-4">Experience</h2>
+            <p class="text-gray-700 leading-7">Works as an IT Project Manager at PT. Anugerah Mitrautama Sejahtera, specializing in Hospital Technology Development.</p>
+            <h2 class="text-2xl font-bold my-4">Passions</h2>
+            <p class="text-gray-700 leading-7">Passionate about technology, programming, and software development, committed to acquiring the knowledge and skills required to succeed in the field.</p>
         </div>
-      </div>
+    </div>
     </div>
     <!-- Popup untuk menampilkan contoh penerapan -->
     <div id="popup" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
@@ -278,12 +419,14 @@
 						
 						
 						
+						
 						<div style="width: 200px; height: 200px; background-color: #3498db; border-radius: 25px; text-align: center; color: #fff; font-size: 24px; line-height: 200px;">
                 Sudut Bulat
             </div>`,
         //css-border-images
         "css-border-images": `
             
+						
 						
 						
 						
@@ -305,6 +448,7 @@
 						
 						
 					
+						
 						<div style="
             width: 300px;
             height: 200px;
@@ -321,6 +465,7 @@
         //css-colors
         "css-colors": `
         
+						
 						
 						
 						
@@ -346,6 +491,7 @@
         //css-color-keywords
         "css-color-keywords": `
         
+						
 						
 						
 						
@@ -405,6 +551,7 @@
 						
 						
 						
+						
 						<div style="background: linear-gradient(to right, #FFA500, #FF4500); color: white;">
             Linear Gradient
         </div>
@@ -423,6 +570,7 @@
         
 						
 						
+						
 						<div style="width: 100px; height: 100px; background-color: #FFA500; 
                     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); color: white; padding: 10px;">
             Box Shadow
@@ -431,6 +579,7 @@
         //css-text-effects
         "css-text-effects": `
         
+						
 						
 						
 						<div style="font-size: 24px; font-weight: bold; text-transform: uppercase;
@@ -443,6 +592,7 @@
         
 						
 						
+						
 						<div style="font-family: 'Pacifico', cursive; font-size: 24px; text-align: center;">
             Web Font
         </div>
@@ -452,11 +602,13 @@
         
 						
 						
+						
 						<div style="width: 100px; height: 100px; background-color: #3498db; transform: rotate(45deg);"></div>
     `,
         //css-3d-transforms
         "css-3d-transforms": `
         
+						
 						
 						
 						<div id="rotate-box-3d" style="width: 100px; height: 100px; background-color: #e74c3c; transform: rotateX(45deg) rotateY(45deg);"></div>
@@ -466,11 +618,13 @@
                 
 						
 						
+						
 						<div class="transition-box"></div>
     `,
         //css-animations
         "css-animations": `
                 
+						
 						
 						<div class="animation-box"></div>
     `,
@@ -478,9 +632,11 @@
         "css-tooltips": `
                 
 						
+						
 						<div class="tooltip-container">
                     Hover untuk melihat tooltip.
                     
+							
 							
 							<span class="tooltip-text">Ini adalah tooltip.</span>
 						</div>
@@ -488,87 +644,153 @@
         //css-style-images
         "css-style-images": `
                
+						
 						<img src="../images/img_chania.jpg" alt="Styling Image" class="styled-image">
             `,
         //css-image-reflection
         "css-image-reflection": `
-                <div class="image-container">
-                    <img src="../images/img_chania.jpg" alt="Image Reflection">
-                    <div class="reflection"></div>
-                </div>
+                
+							<div class="image-container">
+								<img src="../images/img_chania.jpg" alt="Image Reflection">
+									<div class="reflection"></div>
+								</div>
             `,
+        //css-object-fit
         "css-object-fit": `
-								
-								
-								
-								
-								<img src='image.jpg' alt='Object-Fit'>`,
+    <div id="css-object-fit-example">
+        <h3>CSS Object-Fit</h3>
+        <p>Contoh penggunaan CSS Object-Fit untuk mengatur cara objek gambar menyesuaikan ukuran kontainernya.</p>
+        <div class="object-fit-container">
+            <img src="../images/img_chania.jpg" alt="Object-Fit" class="object-fit-image">
+        </div>
+        <p>CSS Object-Fit digunakan untuk memastikan gambar sesuai dengan kontainer tanpa mengubah aspeknya.</p>
+    </div>
+`,
+        //css-object-position
         "css-object-position": `
-									
-									
-									
-									
-									<img src='image.jpg' alt='Object-Position'>`,
+    <div id="css-object-position-example">
+        <h3>CSS Object-Position</h3>
+        <p>Contoh penggunaan CSS Object-Position untuk mengatur posisi objek dalam sebuah elemen gambar.</p>
+        <div class="object-position-container">
+            <img src="../images/img_chania.jpg" alt="Object-Position" class="object-position-image">
+        </div>
+        <p>Posisi objek dalam gambar telah diatur menggunakan CSS Object-Position.</p>
+    </div>
+`,
+        //css-masking
         "css-masking": `
-										
-										
-										
-										
-										<div class='masking'></div>`,
+    <div id="css-masking-example">
+        <h3>CSS Masking</h3>
+        <p>Contoh penggunaan CSS Masking untuk mengaplikasikan masker pada gambar.</p>
+        <div class="masking-container">
+            <img src="../images/img_chania.jpg" alt="CSS Masking" class="masking-image">
+            <div class="masking-layer"></div>
+        </div>
+        <p>CSS Masking digunakan untuk memasker objek gambar dengan pola tertentu.</p>
+    </div>
+`,
+        //css-buttons
         "css-buttons": `
-										
-										
-										
-										
-										<button class='css-button'>Tombol</button>`,
+    <div id="css-buttons-example">
+        <h3>CSS Buttons</h3>
+        <p>Contoh penggunaan CSS untuk membuat tombol dengan efek hover.</p>
+        <button class="button-primary">Tombol Utama</button>
+        <button class="button-secondary">Tombol Sekunder</button>
+    </div>
+`,
+        //css-pagination
         "css-pagination": `
-										
-										
-										
-										
-										<div class='pagination'></div>`,
+    <div id="css-pagination-example">
+        <h3>CSS Pagination</h3>
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><span class="current-page">2</span></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+`,
+        //css-multiple-columns
         "css-multiple-columns": `
-										
-										
-										
-										
-										<div class='multiple-column'></div>`,
+    <div id="css-multiple-columns-example">
+        <h3>CSS Multiple Columns</h3>
+        <p>Contoh penggunaan CSS untuk membuat tampilan teks dalam beberapa kolom.</p>
+        <div class="multi-column-container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at tellus non lorem iaculis gravida in non erat.</p>
+            <p>Vivamus efficitur nisi in ipsum ultricies, in eleifend tortor posuere. Nam vehicula, nunc ut volutpat tempus.</p>
+            <p>Curabitur non laoreet sem, vel viverra nisi. Sed ac tortor eget metus tincidunt cursus id a ex.</p>
+            <p>Phasellus vel sagittis justo, eget hendrerit ante. Proin hendrerit enim sed metus eleifend, a venenatis justo mollis.</p>
+        </div>
+    </div>
+`,
+        //css-user-interface
         "css-user-interface": `
-										
-										
-										
-										
-										<div class='user-interface'></div>`,
+        <div id="css-user-interface-example">
+          <h3>CSS User Interface</h3>
+          <p>Contoh penggunaan CSS untuk merancang antarmuka pengguna (UI).</p>
+          <form>
+              <label for="username">Nama Pengguna:</label>
+              <input type="text" id="username" name="username" placeholder="Masukkan nama pengguna">
+              <br>
+              <label for="password">Kata Sandi:</label>
+              <input type="password" id="password" name="password" placeholder="Masukkan kata sandi">
+              <br>
+              <button class="ui-button">Masuk</button>
+          </form>
+      </div>
+  `,
+        //css-variables
         "css-variables": `
-										
-										
-										
-										
-										<div class='variables'></div>`,
+				<div id="css-variables-example">
+          <h3>CSS Variables</h3>
+          <p>Contoh penggunaan variabel CSS untuk mengatur warna.</p>
+          <div class="variable-example">
+              Ini adalah teks dengan latar belakang warna utama.
+          </div>
+      </div>
+  `,
+        //css-box-sizing
         "css-box-sizing": `
-										
-										
-										
-										
-										<div class='box-sizing'></div>`,
+				<div id="css-box-sizing-example">
+          <h3>CSS Box Sizing</h3>
+          <p>Contoh penggunaan CSS <code>box-sizing</code> untuk mengontrol perhitungan ukuran elemen.</p>
+          <div class="box-sizing-example">
+              padding dan border tidak mempengaruhi ukuran totalnya.
+          </div>
+      </div>
+  `,
+        //css-flexbox
         "css-flexbox": `
-										
-										
-										
-										
-										<div class='flexbox'></div>`,
+				<div id="css-flexbox-example">
+          <h3>CSS Flexbox</h3>
+          <p>Contoh penggunaan CSS Flexbox untuk mengatur tata letak elemen secara fleksibel.</p>
+          <div class="flexbox-example">
+              <div class="flex-item">1</div>
+              <div class="flex-item">2</div>
+              <div class="flex-item">3</div>
+          </div>
+      </div>
+  `,
+        //css-media-queries
         "css-media-queries": `
-										
-										
-										
-										
-										<div class='media-query'></div>`,
+				<div id="css-media-queries-example">
+          <h3>CSS Media Queries</h3>
+          <p>Contoh penggunaan CSS Media Queries untuk mengubah tampilan pada perangkat dengan lebar layar yang berbeda.</p>
+          <div class="media-queries-example">
+              Lebar Layar Kurang dari 600px
+          </div>
+      </div>
+  `,
         "css-mq-examples": `
-										
-										
-										
-										
-										<div class='mq-examples'></div>`
+				<div id="css-mq-examples-example">
+          <h3>CSS Media Queries Examples</h3>
+          <p>Contoh penggunaan CSS Media Queries untuk mengubah tampilan pada perangkat dengan lebar layar yang berbeda.</p>
+          <div class="mq-examples-container">
+              Lebar Layar Kurang dari 600px
+          </div>
+      </div>
+  `
       };
       // Fungsi untuk menampilkan popup dengan konten contoh
       function showPopup(content) {
