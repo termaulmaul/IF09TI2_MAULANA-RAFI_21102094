@@ -1,135 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chania</title>
+    <title>MAULANA RAFI</title>
     <!-- Link to Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Link to anime.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
-        /* Additional Styles */
-        .rounded-custom {
-            border-radius: 15px;
+      /* Additional Styles */
+      .image-container {
+        position: relative;
+        width: 300px;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .reflection {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleY(-1);
+        transform-origin: bottom;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+    }
+
+    /* Gaya CSS untuk popup */
+    #popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #close-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+      .transition-box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        transition: width 0.3s ease-in-out;
+        /* Menambahkan ease-in-out untuk pergerakan yang halus */
+      }
+
+      .transition-box:hover {
+        width: 200px;
+        /* Menambahkan lebar yang lebih besar */
+      }
+
+      .rounded-custom {
+        border-radius: 15px;
+      }
+
+      .animation-box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        animation: animateBox 2s linear infinite;
+        /* Animasi dengan nama "animateBox", durasi 2 detik, linear, dan berulang tanpa batas */
+      }
+
+      @keyframes animateBox {
+        0% {
+          width: 100px;
         }
 
-        /* CSS Gradients */
-        .gradient-background {
-            background: linear-gradient(to right, #FFA500, #FF4500);
+        50% {
+          width: 200px;
         }
 
-        /* CSS Shadows */
-        .shadow-effect {
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        100% {
+          width: 100px;
+        }
+      }
+
+      .tooltip-container {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip-text {
+        visibility: hidden;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        /* Letakkan tooltips di atas elemen induk */
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .tooltip-container:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      /* CSS Gradients */
+      .gradient-background {
+        background: linear-gradient(to right, #FFA500, #FF4500);
+      }
+
+      /* CSS Shadows */
+      .shadow-effect {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* CSS Transitions */
+      .transition-effect {
+        transition: all 0.3s ease;
+      }
+
+      /* CSS Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
 
-        /* CSS Transitions */
-        .transition-effect {
-            transition: all 0.3s ease;
+        to {
+          opacity: 1;
         }
+      }
 
-        /* CSS Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+      .fadeIn-animation {
+        animation: fadeIn 1s ease;
+      }
 
-        .fadeIn-animation {
-            animation: fadeIn 1s ease;
-        }
+      /* CSS Flexbox */
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        /* CSS Flexbox */
-        .flex-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      /* CSS Media Queries */
+      @media (max-width: 768px) {
 
-        /* CSS Media Queries */
-        @media (max-width: 768px) {
-            /* Rules for screens with a maximum width of 768px */
-            .responsive-element {
-                font-size: 14px;
-            }
+        /* Rules for screens with a maximum width of 768px */
+        .responsive-element {
+          font-size: 14px;
         }
+      }
     </style>
-</head>
-<body class="bg-gray-100 font-sans gradient-background">
-
+  </head>
+  <body class="bg-gray-100 font-sans gradient-background">
     <!-- Header -->
     <header class="bg-purple-600 text-white py-8 text-center shadow-lg shadow-effect">
-        <h1 id="animated-text" class="text-4xl font-bold fadeIn-animation">Chania</h1>
+      <h1 id="animated-text" class="text-4xl font-bold fadeIn-animation">MAULANA RAFI | IF09TI2 Pemrograman Web</h1>
     </header>
-
     <script>
-        // Using anime.js for text animation
-        anime.timeline({ loop: true })
-          .add({
-            targets: '#animated-text',
-            opacity: [0, 1],
-            translateY: [50, 0],
-            easing: 'easeOutExpo',
-            duration: 1500
-          })
-          .add({
-            targets: '#animated-text',
-            opacity: [1, 0],
-            translateY: [0, -50],
-            easing: 'easeInExpo',
-            duration: 1500,
-            delay: 1000
-          })
-          .add({
-            targets: '#animated-text',
-            opacity: [0, 1],
-            translateY: [50, 0],
-            easing: 'easeOutExpo',
-            duration: 1500,
-            delay: 1000
-          })
-          .add({
-            targets: '#animated-text',
-            opacity: [1, 0],
-            translateY: [0, -50],
-            easing: 'easeInExpo',
-            duration: 1500,
-            delay: 1000
-          });
+      // Using anime.js for text animation
+      anime.timeline({
+        loop: true
+      }).add({
+        targets: '#animated-text',
+        opacity: [0, 1],
+        translateY: [50, 0],
+        easing: 'easeOutExpo',
+        duration: 1500
+      }).add({
+        targets: '#animated-text',
+        opacity: [1, 0],
+        translateY: [0, -50],
+        easing: 'easeInExpo',
+        duration: 1500,
+        delay: 1000
+      }).add({
+        targets: '#animated-text',
+        opacity: [0, 1],
+        translateY: [50, 0],
+        easing: 'easeOutExpo',
+        duration: 1500,
+        delay: 1000
+      }).add({
+        targets: '#animated-text',
+        opacity: [1, 0],
+        translateY: [0, -50],
+        easing: 'easeInExpo',
+        duration: 1500,
+        delay: 1000
+      });
     </script>
-
     <!-- Main Content -->
     <div class="container mx-auto flex flex-col md:flex-row p-4 space-y-4 md:space-x-4">
-        <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:rotate-3 transition-effect">
-            <ul class="list-none p-0">
-                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">The Flight</li>
-                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">The City</li>
-                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">The Island</li>
-                <li class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">The Food</li>
-            </ul>
+      <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:rotate-3 transition-effect">
+        <ul class="list-none p-0">
+          <li id="css-rounded-corners" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Rounded Corners</li>
+          <li id="css-border-images" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Border Images</li>
+          <li id="css-backgrounds" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Backgrounds</li>
+          <li id="css-colors" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Colors</li>
+          <li id="css-color-keywords" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Color Keywords</li>
+          <li id="css-gradients" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Gradients</li>
+          <li id="css-shadows" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Shadows</li>
+          <li id="css-text-effects" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Text Effects</li>
+          <li id="css-web-fonts" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Web Fonts</li>
+          <li id="css-2d-transforms" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS 2D Transforms</li>
+          <li id="css-3d-transforms" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS 3D Transforms</li>
+          <li id="css-transitions" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Transitions</li>
+          <li id="css-animations" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Animations</li>
+          <li id="css-tooltips" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Tooltips</li>
+          <li id="css-style-images" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Style Images</li>
+          <li id="css-image-reflection" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Image Reflection</li>
+          <li id="css-object-fit" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Object-Fit</li>
+          <li id="css-object-position" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Object-Position</li>
+          <li id="css-masking" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Masking</li>
+          <li id="css-buttons" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Buttons</li>
+          <li id="css-pagination" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Pagination</li>
+          <li id="css-multiple-columns" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Multiple Columns</li>
+          <li id="css-user-interface" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS User Interface</li>
+          <li id="css-variables" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Variables</li>
+          <li id="css-box-sizing" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Box Sizing</li>
+          <li id="css-flexbox" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Flexbox</li>
+          <li id="css-media-queries" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS Media Queries</li>
+          <li id="css-mq-examples" class="bg-blue-600 text-white p-2 mb-2 rounded-md font-medium transform hover:-translate-y-1 hover:scale-105 transition-effect">CSS MQ Examples</li>
+        </ul>
+      </div>
+      <div class="w-full md:w-1/2 bg-white p-4 rounded-custom shadow-md">
+        <h1 class="text-3xl font-bold mb-4">Practice 3 - CSS Advance</h1>
+        <p class="text-gray-700 leading-7">Pada Practice 3 ini, kami mempelajari CSS Advance yang ada pada W3School</p>
+      </div>
+      <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:-translate-y-2 hover:scale-105 transition-effect">
+        <div class="text-white p-4">
+          <h2 class="text-2xl font-bold mb-4">What?</h2>
+          <p class="text-gray-700 leading-7">Chania is a city on the island of Crete.</p>
+          <h2 class="text-2xl font-bold mb-4">Where?</h2>
+          <p class="text-gray-700 leading-7">Crete is a Greek island in the Mediterranean Sea.</p>
+          <h2 class="text-2xl font-bold mb-4">How?</h2>
+          <p class="text-gray-700 leading-7">You can reach Chania airport from all over Europe.</p>
         </div>
-
-        <div class="w-full md:w-1/2 bg-white p-4 rounded-custom shadow-md">
-            <h1 class="text-3xl font-bold mb-4">The City</h1>
-            <p class="text-gray-700 leading-7">Chania is the capital of the Chania region on the island of Crete. The city can be divided into two parts, the old town and the modern city.</p>
-        </div>
-
-        <div class="w-full md:w-1/4 bg-blue-500 p-4 rounded-custom shadow-md transform hover:-translate-y-2 hover:scale-105 transition-effect">
-            <div class="text-white p-4">
-                <h2 class="text-2xl font-bold mb-4">What?</h2>
-                <p class="text-gray-700 leading-7">Chania is a city on the island of Crete.</p>
-                <h2 class="text-2xl font-bold mb-4">Where?</h2>
-                <p class="text-gray-700 leading-7">Crete is a Greek island in the Mediterranean Sea.</p>
-                <h2 class="text-2xl font-bold mb-4">How?</h2>
-                <p class="text-gray-700 leading-7">You can reach Chania airport from all over Europe.</p>
-            </div>
-        </div>
+      </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center py-4">
-        <p class="text-sm font-medium">Resize the browser window to see how the content responds to resizing.</p>
-    </footer>
-
-</body>
+    <!-- Popup untuk menampilkan contoh penerapan -->
+    <div id="popup" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+      <div class="bg-white p-4 rounded-md shadow-md">
+        <h2 class="text-xl font-bold mb-4">Contoh Penerapan</h2>
+        <div id="popup-content">
+          <!-- Konten contoh akan ditampilkan di sini -->
+        </div>
+        <button id="close-popup" class="bg-blue-600 text-white p-2 rounded-md mt-4 hover:bg-blue-700">Tutup</button>
+      </div>
+    </div>
+    <script>
+      // Daftar penerapan CSS Advance
+      const cssExamples = {
+        //css-rounded-corners
+        "css-rounded-corners": `
+            
+						
+						
+						
+						
+						<div style="width: 200px; height: 200px; background-color: #3498db; border-radius: 25px; text-align: center; color: #fff; font-size: 24px; line-height: 200px;">
+                Sudut Bulat
+            </div>`,
+        //css-border-images
+        "css-border-images": `
+            
+						
+						
+						
+						
+						<div style="
+            width: 300px;
+            height: 200px;
+            border: 30px solid transparent;
+            border-image-source: url('../images/img_chania.jpg');
+            border-image-slice: 30 fill;
+            border-image-repeat: round;
+            ">
+            Ini adalah elemen dengan efek Border Images.
+            </div>`,
+        //css-backgrounds
+        "css-backgrounds": `
+            
+						
+						
+						
+					
+						<div style="
+            width: 300px;
+            height: 200px;
+            background-image: url('../images/img_chania.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+             ">
+            Background dengan gambar.
+             </div>`,
+        //css-colors
+        "css-colors": `
+        
+						
+						
+						
+						
+						<div style="background-color: red; color: white;">
+            Red
+        </div>
+						<div style="background-color: green; color: white;">
+            Green
+        </div>
+						<div style="background-color: blue; color: white;">
+            Blue
+        </div>
+						<div style="background-color: grey; color: white;">
+            Grey
+        </div>
+						<div style="background-color: yellow; color: black;">
+            Yellow
+        </div>
+						<div style="background-color: cerise; color: white;">
+            Cerise
+        </div>`,
+        //css-color-keywords
+        "css-color-keywords": `
+        
+						
+						
+						
+						
+						<div style="background-color: black; color: white;">
+            Black
+        </div>
+						<div style="background-color: silver; color: black;">
+            Silver
+        </div>
+						<div style="background-color: gray; color: white;">
+            Gray
+        </div>
+						<div style="background-color: white; color: black;">
+            White
+        </div>
+						<div style="background-color: maroon; color: white;">
+            Maroon
+        </div>
+						<div style="background-color: red; color: white;">
+            Red
+        </div>
+						<div style="background-color: purple; color: white;">
+            Purple
+        </div>
+						<div style="background-color: fuchsia; color: white;">
+            Fuchsia
+        </div>
+						<div style="background-color: green; color: white;">
+            Green
+        </div>
+						<div style="background-color: lime; color: black;">
+            Lime
+        </div>
+						<div style="background-color: olive; color: white;">
+            Olive
+        </div>
+						<div style="background-color: yellow; color: black;">
+            Yellow
+        </div>
+						<div style="background-color: navy; color: white;">
+            Navy
+        </div>
+						<div style="background-color: blue; color: white;">
+            Blue
+        </div>
+						<div style="background-color: teal; color: black;">
+            Teal
+        </div>
+						<div style="background-color: aqua; color: black;">
+            Aqua
+        </div>
+    `,
+        //css-gradients
+        "css-gradients": `
+        
+						
+						
+						
+						<div style="background: linear-gradient(to right, #FFA500, #FF4500); color: white;">
+            Linear Gradient
+        </div>
+						<div style="background: radial-gradient(circle, #FFA500, #FF4500); color: white;">
+            Radial Gradient
+        </div>
+						<div style="background: repeating-linear-gradient(to right, #FFA500, #FF4500 20px, #FFA500 40px); color: white;">
+            Repeating Linear Gradient
+        </div>
+						<div style="background: repeating-radial-gradient(circle, #FFA500, #FF4500 20px, #FFA500 40px); color: white;">
+            Repeating Radial Gradient
+        </div>
+    `,
+        //css-shadows
+        "css-shadows": `
+        
+						
+						
+						<div style="width: 100px; height: 100px; background-color: #FFA500; 
+                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); color: white; padding: 10px;">
+            Box Shadow
+        </div>
+        `,
+        //css-text-effects
+        "css-text-effects": `
+        
+						
+						
+						<div style="font-size: 24px; font-weight: bold; text-transform: uppercase;
+                    text-align: center; text-shadow: 2px 2px 4px #000; color: #FFA500;">
+            Text Effects
+        </div>
+    `,
+        //css-web-fonts
+        "css-web-fonts": `
+        
+						
+						
+						<div style="font-family: 'Pacifico', cursive; font-size: 24px; text-align: center;">
+            Web Font
+        </div>
+    `,
+        //css-2d-transforms
+        "css-2d-transforms": `
+        
+						
+						
+						<div style="width: 100px; height: 100px; background-color: #3498db; transform: rotate(45deg);"></div>
+    `,
+        //css-3d-transforms
+        "css-3d-transforms": `
+        
+						
+						
+						<div id="rotate-box-3d" style="width: 100px; height: 100px; background-color: #e74c3c; transform: rotateX(45deg) rotateY(45deg);"></div>
+    `,
+        //css-transitions
+        "css-transitions": `
+                
+						
+						
+						<div class="transition-box"></div>
+    `,
+        //css-animations
+        "css-animations": `
+                
+						
+						<div class="animation-box"></div>
+    `,
+        //css-tooltips
+        "css-tooltips": `
+                
+						
+						<div class="tooltip-container">
+                    Hover untuk melihat tooltip.
+                    
+							
+							<span class="tooltip-text">Ini adalah tooltip.</span>
+						</div>
+            `,
+        //css-style-images
+        "css-style-images": `
+               
+						<img src="../images/img_chania.jpg" alt="Styling Image" class="styled-image">
+            `,
+        //css-image-reflection
+        "css-image-reflection": `
+                <div class="image-container">
+                    <img src="../images/img_chania.jpg" alt="Image Reflection">
+                    <div class="reflection"></div>
+                </div>
+            `,
+        "css-object-fit": `
+								
+								
+								
+								
+								<img src='image.jpg' alt='Object-Fit'>`,
+        "css-object-position": `
+									
+									
+									
+									
+									<img src='image.jpg' alt='Object-Position'>`,
+        "css-masking": `
+										
+										
+										
+										
+										<div class='masking'></div>`,
+        "css-buttons": `
+										
+										
+										
+										
+										<button class='css-button'>Tombol</button>`,
+        "css-pagination": `
+										
+										
+										
+										
+										<div class='pagination'></div>`,
+        "css-multiple-columns": `
+										
+										
+										
+										
+										<div class='multiple-column'></div>`,
+        "css-user-interface": `
+										
+										
+										
+										
+										<div class='user-interface'></div>`,
+        "css-variables": `
+										
+										
+										
+										
+										<div class='variables'></div>`,
+        "css-box-sizing": `
+										
+										
+										
+										
+										<div class='box-sizing'></div>`,
+        "css-flexbox": `
+										
+										
+										
+										
+										<div class='flexbox'></div>`,
+        "css-media-queries": `
+										
+										
+										
+										
+										<div class='media-query'></div>`,
+        "css-mq-examples": `
+										
+										
+										
+										
+										<div class='mq-examples'></div>`
+      };
+      // Fungsi untuk menampilkan popup dengan konten contoh
+      function showPopup(content) {
+        const popup = document.getElementById("popup");
+        const popupContent = document.getElementById("popup-content");
+        popupContent.innerHTML = content;
+        popup.style.display = "flex";
+      }
+      // Event listener untuk setiap item CSS Advance
+      const items = document.querySelectorAll(".bg-blue-600");
+      items.forEach(item => {
+        item.addEventListener("click", function() {
+          const itemId = item.id;
+          const exampleContent = cssExamples[itemId];
+          showPopup(exampleContent);
+        });
+      });
+      // Event listener untuk menutup popup
+      const closePopupButton = document.getElementById("close-popup");
+      closePopupButton.addEventListener("click", function() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "none";
+      });
+    </script>
+  </body>
 </html>
