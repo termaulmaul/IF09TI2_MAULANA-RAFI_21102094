@@ -6,28 +6,7 @@
     <title>Maulana Rafi Nurdiansyah</title>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
 </head>
-<script>
-    function showWelcomePopup() {
-        const welcomePopup = document.querySelector(".welcome-popup");
-        welcomePopup.style.display = "flex";
-    }
-
-    function hideWelcomePopup() {
-        const welcomePopup = document.querySelector(".welcome-popup");
-        welcomePopup.style.display = "none";
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-        showWelcomePopup();
-
-        const welcomePopup = document.querySelector(".welcome-popup");
-        welcomePopup.addEventListener("click", (event) => {
-            if (event.target === welcomePopup) {
-                hideWelcomePopup();
-            }
-        });
-    });
-</script>
+<script src="./js/script.js"></script>
 <body style="background-image: url('image/bg1.jpg');">
 
     <div class="header">
