@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulana Rafi Nurdiansyah</title>
+
+    <style type="text/css">
+        .style1 {
+            font-size: 16px;
+            line-height: 1.5em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #5eb3c2;
+            color: #ffffff;
+            padding: 40px;
+            font-size: 10px;
+            background-image: url("image/bg.jpg");
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            background-color: #f1f1f1;
+            box-shadow: inset 7px 7px 2px 2px rgb(250, 249, 249), 7px 7px 2px 2px rgb(250, 249, 249);
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        li a.active {
+            background-color: #c25e5e;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #c25e5e;
+            color: white;
+        }
+
+        .aside {
+            background-color: #5d8dd6;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            border-radius: 30px;
+            box-shadow: inset 7px 7px 2px 2px rgb(250, 249, 249), 7px 7px 2px 2px rgb(250, 249, 249);
+        }
+
+        .footer {
+            background-color: #5ebbc2;
+            color: #ffffff;
+            text-align: center;
+            font-size: 16px;
+            padding: 18px;
+            background-image: url("image/bg.jpg");
+        }
+
+        .welcome-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+
+            .rounded-image {
+                border-radius: 100px;
+                -webkit-border-radius: 100px;
+                -moz-border-radius: 100px;
+            }
+        }
+    </style>
+</head>
+<script>
+    function showWelcomePopup() {
+        const welcomePopup = document.querySelector(".welcome-popup");
+        welcomePopup.style.display = "flex";
+    }
+
+    function hideWelcomePopup() {
+        const welcomePopup = document.querySelector(".welcome-popup");
+        welcomePopup.style.display = "none";
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        showWelcomePopup();
+
+        const welcomePopup = document.querySelector(".welcome-popup");
+        welcomePopup.addEventListener("click", (event) => {
+            if (event.target === welcomePopup) {
+                hideWelcomePopup();
+            }
+        });
+    });
+</script>
+<body style="background-image: url('image/bg1.jpg');">
+
+    <div class="header">
+        <h1><strong>Maulana Rafi Nurdiansyah | 21102094 | S1-IF-09-TI2</strong></h1>
+    </div>
+
+    <div class="welcome-popup">
+        <div class="popup-content">
+            <h2 class="center-text">Praktikum ke-4</h2>
+            <p class="center-text">Selamat datang di halaman praktikum ke-4 web saya!</p>
+            <p class="center-text">Maulana Rafi Nurdiansyah - 21102094 - TI2</p>
+            <button onclick="hideWelcomePopup()">Close</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3 col-s-3 menu">
+            <ul>
+                <li><a class="active" href="#home">JS HTML DOM</a></li>
+                <li><a href="inline_script.html">Inline Script</a></li>
+                <li><a href="embedded_script.html">Embedded Script</a></li>
+                <li><a href="external_script.html">External Script</a></li>
+                <li><a href="DOM_intro.html">DOM Intro</a></li>
+                <li><a href="dom_method.html">DOM Method</a></li>
+                <li><a href="DOM_document.html">DOM Document</a></li>
+                <li><a href="DOM_elements.html">DOM Elements</a></li>
+                <li><a href="DOM_html.html">DOM Html</a></li>
+                <li><a href="DOM_Forms.html">DOM Forms</a></li>
+                <li><a href="DOM_CSS.html">DOM CSS</a></li>
+                <li><a href="DOM_Animations.html">DOM Animations</a></li>
+                <li><a href="DOM_Events.html">DOM Events</a></li>
+                <li><a href="DOM_Event_Listener.html">DOM Events Listener</a></li>
+                <li><a href="DOM_Navigations.html">DOM Navigations</a></li>
+                <li><a href="DOM_Nodes.html">DOM Nodes</a></li>
+                <li><a href="DOM_Collections.html">DOM Collections</a></li>
+                <li><a href="DOM_Node_List.html">DOM Node List</a></li>
+            </ul>
+        </div>
+
+        <div class="col-6 col-s-9">
+
+            <h1 style="text-align:justify;">
+                <center>Java Script</center>
+            </h1>
+            <p class="style1" style="text-align:justify;"><strong>Pengertian JavaScript Menurut Para Ahli :
+                </strong><br>
+                1. Menurut Mac Bride (2007) dalam bukunya berjudul, Java Script, disebutkan bahwa JavaScript adalah
+                bahasa
+                pemrograman berbasis browser, dimana seluruh kodenya ditulis langsung ke dalam HTML dari halaman-halaman
+                web yang kemudian diterjemahkan dan dieksekusi sebagai respon dari seluruh aktivitas yang terjadi pada
+                halaman web.<br><br>
+
+                2. Menurut Deitel (2012) dalam bukunya berjudul C How to Program, menyebutkan bahwa JavaScript merupakan
+                bahasa naskah yang sering digunakan untuk menambah program pada suatu halaman website sebagai contoh
+                animasi dan interaksi dengan pengguna dan dapat digunakan di seluruh web browser.<br><br>
+
+                3. Menurut William & Sawyer (2011) dalam bukunya berjudul Using Information Technology: A Practical
+                Introduction to Computers & Communications menyebutkan bahwa JavaScript merupakan bahasa naskah
+                berorientasi objek yang digunakan pada web browser dengan menambahkan beberapa fungsi interaktif di
+                halaman web.<br>
+                <br>
+                <p>Sumber: <a href="https://www.logique.co.id/blog/2020/11/18/keuntungan-pengertian-javascript/" target="_blank">https://www.logique.co.id/blog/2020/11/18/keuntungan-pengertian-javascript/</a></p>
+            </p>
+        </div>
+
+        <div class="col-3 col-s-12">
+            <div class="aside">
+                <h2>Tentang Saya</h2>
+                <img class="rounded-image" src="image/saya.jpg" alt="Maulana Rafi Nurdiansyah Photo's" width="150" height="150"
+                    align="middle">
+                <p>
+                    <center><strong>Hi Everyone!</strong></center>
+                </p>
+                <p class="style1">
+                    I'm Maulana Rafi Nurdiansyah, an Information Engineering student at Telkom Institute of Technology, Purwokerto.
+                    My passion lies in Machine Learning and Data Analysis. I'm always seeking to improve my skills and knowledge
+                    to make a valuable contribution to the field.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Maulana Rafi Nurdiansyah &copy; 2023</strong></p>
+    </div>
+
+</body>
+
+</html>
