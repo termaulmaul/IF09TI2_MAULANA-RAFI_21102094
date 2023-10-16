@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/css.css">
-</head>
-
-<body>
-
+  </head>
+  <body>
     <div class="header">
-        <h1>Tugas CSS & Javascript</h1>
+      <h1>Tugas CSS & Javascript</h1>
     </div>
-
     <div class="row">
-        <div class="col-3 col-s-3 menu">
-            <ul>
-              <li><a href="index.html">Beranda</a></li>
-              <li><a href="Javascript Alert.html">Javascript Alert</li>
-              <li><a href="Luas Segitiga.html">Luas Segitiga</a></li>
-              <li><a href="Konversi.html">Konversi Nilai</a></li>
-              <li><a href="cetak.html" onclick="cetak(); return false;">Cetak halaman</a></li>
-            </ul>
+      <div class="col-3 col-s-3 menu">
+        <ul>
+          <li>
+            <a href="index.html">Beranda</a>
+          </li>
+          <li>
+            <a href="Javascript Alert.html">Javascript Alert
+          </li>
+          <li>
+            <a href="Luas Segitiga.html">Luas Segitiga</a>
+          </li>
+          <li>
+            <a href="Konversi.html">Konversi Nilai</a>
+          </li>
+          <li>
+            <a href="cetak.html" onclick="cetak(); return false;">Cetak halaman</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-s-9">
+        <b> RUMUS LUAS SEGITIGA </b>
+        <br>
+        <label>Tinggi Segitiga: </label>
+        <input id="tinggi" type="number" placeholder="Masukkan Tinggi" />
+        <br>
+        <br>
+        <label>Alas Segitiga: </label>
+        <input id="alas" type="number" placeholder="Masukkan alas" />
+        <br>
+        <br>
+        <button id="hitung">Klik disini untuk menghitung!</button>
+        <br>
+        <b>Luas Adalah </b>
+        <b id="hasil">0</b>
+      </div>
+      <div class="col-3 col-s-12">
+        <div class="aside">
+          <img src="image/saya.jpg" alt="" width="130" height="150">
+          <h3>About me </h3>
+          <p>
+          <p>Halo guys! Nama Saya Maulana Rafi Nurdiansyah Dengan NIM 21102094 saya adalah mahasiswa Institut Teknologi Telkom Purwokerto yang berada di kelas IF-09-TI2</p>
+          <h3>Sosial Media</h3>
+          <p>Bisa Follow instagram saya @hipsterweeds</p>
+          <h3>Hobi</h3>
+          <p>Hobi saya adalah main game, mendengarkan musik, dan ngoding.</p>
         </div>
-
-
-        <div class="col-6 col-s-9">
-            <b> RUMUS LUAS SEGITIGA </b><br>
-            <label>Tinggi Segitiga: </label>
-            <input id="tinggi" type="number" placeholder="Masukkan Tinggi"/><br>
-            <br>
-            <label>Alas Segitiga: </label>
-            <input id="alas" type="number" placeholder="Masukkan alas"/><br>
-            <br>
-            <button id="hitung">Klik disini untuk menghitung!</button><br>
-            <b>Luas Adalah </b> <b id="hasil">0</b>
-        
-        </div>
-
-
-        <div class="col-3 col-s-12">
-            <div class="aside">
-                <img src="image/gwejh.jpg" alt="" width="130" height="150">
-                <h3>About me </h3>
-                <p>Halo guys! Nama Ku Zulfina Wiria Amanda Dengan NIM 21102293 saya adalah mahasiswa Institut
-                    Teknologi Telkom Purwokerto yang berada di kelas IF-09-MM3</p>
-                <h3>Sosial Media</h3>
-                <p>Bisa Follow instagram saya @zw_amanda</p>
-                <h3>Hobi</h3>
-                <p>Hobi saya adalah mendengarkan music, membaca buku dan menonton film</p>
-            </div>
-        </div>
+      </div>
     </div>
-
     <div class="footer">
-        <p>Created By: Zulfina Wiria Amanda| 2023</p>
+      <p>Created By: hipsterweeds | 2023</p>
     </div>
-
-</body>
-<script src="js/script1.js"></script>
+  </body>
+  <script src="js/script1.js"></script>
 </html>
