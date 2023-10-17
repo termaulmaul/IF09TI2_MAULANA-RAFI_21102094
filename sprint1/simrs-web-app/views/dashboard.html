@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Sistem Manajemen Rumah Sakit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Define a CSS animation for fade-in */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Apply the animation to elements with the "animated" class */
+        .animated {
+            animation: fade-in 1s ease-out;
+        }
+
+        /* Styling for the footer */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100" style="position: relative; min-height: 100vh;">
+    <header class="bg-blue-500 text-white p-4 animated">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-semibold">SIMRS - RSUD IKN</h1>
+            <div class="space-x-4">
+                <a href="/dashboard" class="hover:underline animated">Home</a>
+                <a href="/pasien" class="hover:underline animated">Pasien</a>
+                <a href="/jadwal-dokter" class="hover:underline animated">Jadwal Dokter</a>
+            </div>
+        </div>
+    </header>
+    <div class="container mx-auto py-10">
+        <h1 class="text-4xl font-semibold mb-6 animated">Dashboard</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-white shadow-md p-6 rounded-lg animated">
+                <h2 class="text-xl font-semibold mb-4">Grafik Statistik Poli</h2>
+                <canvas id="chartPoli"></canvas>
+                <script>
+                    // Data statistik poli (contoh)
+                    const dataPoli = {
+                        labels: ['Poli Umum', 'Poli Gigi', 'Poli Mata', 'Poli Kebidanan', 'Poli Bedah'],
+                        datasets: [{
+                            label: 'Statistik Pasien di Poli',
+                            data: [80, 40, 60, 30, 20], // Ganti dengan jumlah pasien di masing-masing poli
+                            backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                            borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(153, 102, 255, 1)'],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    // Konfigurasi grafik
+                    const config = {
+                        type: 'bar',
+                        data: dataPoli,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    };
+
+                    // Membuat grafik
+                    var ctx = document.getElementById('chartPoli').getContext('2d');
+                    new Chart(ctx, config);
+                </script>
+            </div>
+            <div class="bg-white shadow-md p-6 rounded-lg animated">
+                <h2 class="text-xl font-semibold mb-4">Kinerja Rumah Sakit</h2>
+                <p class="text-gray-700 animated">Informasi mengenai kinerja rumah sakit, termasuk jumlah pasien, penggunaan tempat tidur, dan statistik lainnya.</p>
+            </div>
+            <div class="bg-white shadow-md p-6 rounded-lg animated">
+                <h2 class="text-xl font-semibold mb-4">Informasi Penting</h2>
+                <p class="text-gray-700 animated">Informasi penting lainnya yang relevan dengan kinerja rumah sakit, pengumuman, dan berita terkini.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Footer Section -->
+<div class="footer">
+    &copy; 2023 SIMRS - RSUD IKN. All rights reserved.
+</div>
+</html>
