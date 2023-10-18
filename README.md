@@ -4,7 +4,7 @@
 
 - Nama: Maulana Rafi
 - NIM: 21102094
-- Kelas: IF09
+- Kelas: TI2_IF09
 
 ## Deskripsi
 
