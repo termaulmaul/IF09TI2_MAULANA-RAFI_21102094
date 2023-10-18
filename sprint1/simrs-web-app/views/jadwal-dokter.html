@@ -21,21 +21,22 @@
         .animated {
             animation: fade-in 1s ease-out;
         }
+
+        /* Styling for the header */
+        .header {
+            background-color: #3B82F6;
+            color: #fff;
+        }
+
         /* Styling for the footer */
         .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
             background-color: #333;
             color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            animation: fade-in 1s ease-out;
         }
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-blue-500 text-white p-4">
+    <header class="header text-white p-4 animated">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-semibold">SIMRS - RSUD IKN</h1>
             <div class="space-x-4">
@@ -45,16 +46,204 @@
             </div>
         </div>
     </header>
-    <div class="container mx-auto py-10">
+    <div class="container mx-auto py-10 p-2 sm:p-4 md:p-6 lg:p-8 xl:p-10">
         <h1 class="text-4xl font-semibold mb-6 animated">Jadwal Dokter</h1>
-        <div class="bg-white shadow-md p-6 rounded-lg mb-6 animated">
-            <h2 class="text-xl font-semibold mb-4">Jadwal Dokter</h2>
-            <p class="text-gray-700 animated">Menampilkan jadwal lengkap dokter di rumah sakit untuk memudahkan pasien dalam membuat janji.</p>
+
+        <!-- Tabel Jadwal Dokter Poli Umum -->
+        <div class="bg-white shadow-md p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg mb-6 animated mt-6">
+            <h2 class="text-xl font-semibold mb-4">Poli Umum</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Dokter
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Hari
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Jam Praktek
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Dokter Poli Umum -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Dr. John Doe
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Senin
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                08:00 AM - 12:00 PM
+                            </td>
+                        </tr>
+                        <!-- Tambahkan jadwal dokter lainnya di Poli Umum -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Dr. Jane Smith
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Selasa
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                09:00 AM - 01:00 PM
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Tabel Jadwal Dokter Poli Gigi -->
+        <div class="bg-white shadow-md p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg animated mt-6">
+            <h2 class="text-xl font-semibold mb-4">Poli Gigi</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Dokter
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Hari
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Jam Praktek
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Dokter Poli Gigi -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Dr. Sarah Johnson
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Rabu
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                10:00 AM - 02:00 PM
+                            </td>
+                        </tr>
+                        <!-- Tambahkan jadwal dokter lainnya di Poli Gigi -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Tabel Jadwal Dokter Poli Mata -->
+        <div class="bg-white shadow-md p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg animated mt-6">
+            <h2 class="text-xl font-semibold mb-4">Poli Mata</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Dokter
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Hari
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Jam Praktek
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Dokter Poli Mata -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Dr. Michael Clark
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Kamis
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                11:00 AM - 03:00 PM
+                            </td>
+                        </tr>
+                        <!-- Tambahkan jadwal dokter lainnya di Poli Mata -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Tabel Jadwal Dokter Poli Kebidanan -->
+        <div class="bg-white shadow-md p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg animated mt-6">
+            <h2 class="text-xl font-semibold mb-4">Poli Kebidanan</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Dokter
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Hari
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Jam Praktek
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Dokter Poli Kebidanan -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Dr. Susan Lee
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Jumat
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                09:00 AM - 01:00 PM
+                            </td>
+                        </tr>
+                        <!-- Tambahkan jadwal dokter lainnya di Poli Kebidanan -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Tabel Jadwal Dokter Poli Bedah -->
+        <div class="bg-white shadow-md p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg animated mt-6">
+            <h2 class="text-xl font-semibold mb-4">Poli Bedah</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Dokter
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Hari
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Jam Praktek
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Dokter Poli Bedah -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Dr. William Brown
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                Sabtu
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                10:00 AM - 02:00 PM
+                            </td>
+                        </tr>
+                        <!-- Tambahkan jadwal dokter lainnya di Poli Bedah -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
 <!-- Footer Section -->
-<div class="footer">
+<div class="footer p-4 animated">
     &copy; 2023 SIMRS - RSUD IKN. All rights reserved.
 </div>
 </html>
