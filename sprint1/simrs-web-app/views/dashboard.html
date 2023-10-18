@@ -26,6 +26,7 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            animation: fade-in 1s ease-out;
         }
     </style>
 </head>
@@ -79,8 +80,36 @@
             </div>
             <div class="bg-white shadow-md p-6 rounded-lg animated">
                 <h2 class="text-xl font-semibold mb-4">Kinerja Rumah Sakit</h2>
-                <p class="text-gray-700 animated">Informasi mengenai kinerja rumah sakit, termasuk jumlah pasien, penggunaan tempat tidur, dan statistik lainnya.</p>
+                <canvas id="chartKinerjaRumahSakit"></canvas>
+                <p class="text-gray-700 animated">
+                    Di sini Anda dapat menambahkan informasi kinerja rumah sakit seperti:
+                    - Jumlah total pasien saat ini: 325
+                    - Penggunaan tempat tidur: 70%
+                    - Waktu rata-rata perawatan: 4 hari
+                    - dll.
+                </p>
             </div>
+            
+            <script>
+                // Data untuk pie chart
+                const dataKinerjaRumahSakit = {
+                    labels: ['Jumlah Pasien', 'Penggunaan Tempat Tidur', 'Waktu Rata-rata Perawatan'],
+                    datasets: [{
+                        data: [325, 70, 4], // Ganti dengan data yang sesuai
+                        backgroundColor: ['#FF5733', '#33FF45', '#338CFF'], // Warna sesuai dengan label
+                    }]
+                };
+            
+                // Konfigurasi pie chart
+                const configKinerjaRumahSakit = {
+                    type: 'pie',
+                    data: dataKinerjaRumahSakit,
+                };
+            
+                // Membuat pie chart
+                var ctxKinerjaRumahSakit = document.getElementById('chartKinerjaRumahSakit').getContext('2d');
+                new Chart(ctxKinerjaRumahSakit, configKinerjaRumahSakit);
+            </script>            
             <div class="bg-white shadow-md p-6 rounded-lg animated">
                 <h2 class="text-xl font-semibold mb-4">Informasi Penting</h2>
                 <p class="text-gray-700 animated">Informasi penting lainnya yang relevan dengan kinerja rumah sakit, pengumuman, dan berita terkini.</p>
