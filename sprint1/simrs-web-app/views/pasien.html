@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Pasien - Sistem Manajemen Rumah Sakit</title>
@@ -7,8 +8,15 @@
     <style>
         /* Define a CSS animation for fade-in */
         @keyframes fade-in {
-            0% { opacity: 0; transform: translateY(-10px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Apply the animation to elements with the "animated" class */
@@ -29,18 +37,44 @@
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-blue-500 text-white p-4 animated">
+
+<body class="bg-gray-100" style="position: relative; min-height: 100vh;">
+    <!-- Header Section -->
+    <div class="bg-blue-500 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-semibold">SIMRS - RSUD IKN</h1>
             <div class="space-x-4">
                 <a href="/" class="hover:underline animated">Home</a>
-                <a href="/pasien" class="hover:underline">Pasien</a>
+                <a href="/pasien" class="hover:underline animated">Pasien</a>
                 <a href="/jadwal-dokter" class="hover:underline animated">Jadwal Dokter</a>
+                <!-- Tambahkan tombol login di sini -->
+                <button class="hover:underline" onclick="toggleLoginPopup()">Login</button>
             </div>
         </div>
-    </header>
-    <!-- Mengelilingi semua konten dalam elemen div dengan kelas CSS untuk scroll -->
+    </div>
+
+    <!-- Modal (Popup) untuk Login -->
+    <div id="loginPopup" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 animated">
+        <div class="bg-white p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold mb-4">Login</h2>
+            <!-- Form login -->
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="username" name="username" class="block w-full p-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" class="block w-full p-2 border rounded">
+                </div>
+                <div class="flex justify-between">
+                    <button class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600" onclick="login()">Login</button>
+                    <button class="bg-gray-200 p-2 rounded hover:bg-gray-300" onclick="closeLoginPopup()">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Content Section -->
     <div class="container mx-auto py-10 h-full overflow-y-auto">
         <h1 class="text-4xl font-semibold mb-6 animated">Pasien</h1>
         <!-- Tabel Daftar Pasien -->
@@ -98,18 +132,23 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Informasi tambahan tentang Pasien -->
         <div class="bg-white shadow-md p-6 rounded-lg mt-6 animated">
-                     <h2 class="text-xl font-semibold mb-4">Pendaftaran Pasien Baru</h2>
+            <h2 class="text-xl font-semibold mb-4">Pendaftaran Pasien Baru</h2>
             <p class="text-gray-700">Memungkinkan petugas administrasi untuk mendaftarkan pasien baru ke dalam sistem.</p>
         </div>
+
         <div class="bg-white shadow-md p-6 rounded-lg mt-6 animated">
             <h2 class="text-xl font-semibold mb-4">Rekam Medis</h2>
             <p class="text-gray-700">Mengelola dan mengakses rekam medis pasien, termasuk riwayat penyakit, diagnosis, dan perawatan yang telah diberikan.</p>
         </div>
     </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        &copy; 2023 SIMRS - RSUD IKN. All rights reserved.
+    </div>
 </body>
-<!-- Footer Section -->
-<div class="footer">
-    &copy; 2023 SIMRS - RSUD IKN. All rights reserved.
-</div>
+
 </html>
