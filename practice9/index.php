@@ -1,3 +1,10 @@
+<?php 
+  include "koneksi.php";
+  $qkelas = "select * from kelas";
+  $data_kelas = $conn -> query($qkelas);
+  $qmahasiswa = "select * from mahasiswa";
+  $data_mahasiswa = $conn -> query($qmahasiswa);
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -49,10 +56,54 @@
 
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
-          Konten Data
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">Data Mahasiswa</span>
+    <span class="badge badge-secondary badge-pill">0</span>
+</h4>
+<?php
+  foreach($data_mahasiswa as $index => $value){
+    ?>
+<ul class="list-group mb-3">
+    <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+            <h6 class="my-0"><?php echo $value['nama_lengkap']?></h6>
+            <small class="text-muted"><?php echo $value ['alamat']?></small>
+        </div>
+        <span class="text-muted"><?php echo $value['kelas_id']?></span>
+    </li>
+</ul>
+<?php
+  }
+  ?>
         </div>
         <div class="col-md-8 order-md-1">
-          Konten Input
+        <h4 class="mb-3">Input Data</h4>
+<form action="simpan_mahasiswa.php" method="POST">
+    <div class="mb-3">
+        <label for="nama_lengkap">Nama Lengkap</label>
+        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
+    </div>
+    <div class="mb-3">
+        <label for="alamat">Alamat</label>
+        <input type="text" class="form-control" id="alamat" name="alamat" required>
+    </div>
+    <div class="mb-3">
+        <label for="kelas">Kelas</label>
+        <select class="custom-select d-block w-100" id="kelas" name="kelas_id" required>
+            <option value="">Pilih...</option>
+            <?php
+              foreach($data_kelas as $index => $value){
+                ?>
+                <option value = "<?php echo $value['kelas_id']?>"><?php echo $value['nama']?></option>
+                <?php
+              }
+              ?>
+        </select>
+    </div>
+    <hr class="mb-4">
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Simpan Data</button>
+</form>
+
         </div>
       </div>
 
